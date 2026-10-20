@@ -1,0 +1,114 @@
+@font-face { font-family: "Outfit"; src: url("fuentes/outfit-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fuentes/outfit-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fuentes/outfit-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --verde: #12432F;      /* green del icono */
+  --cesped: #2F8F4E;
+  --crema: #F4EFE2;
+  --naranja: #F2A03D;    /* bandera */
+  --tinta: #1C2B23;
+  --tinta-suave: #4B5A51;
+  --linea: #D9D2BF;
+  --fondo: #FBF9F4;
+  --enlace: #1F6B3E;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tinta: #E9E6DC;
+    --tinta-suave: #B4BBB3;
+    --linea: #34463C;
+    --fondo: #0F1F17;
+    --enlace: #8FD3A6;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--fondo);
+}
+a { color: var(--enlace); text-underline-offset: 0.18em; }
+a:focus-visible { outline: 3px solid var(--naranja); outline-offset: 3px; border-radius: 2px; }
+img { max-width: 100%; height: auto; }
+
+.ancho { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+.texto { width: min(100% - 2.5rem, 42rem); margin-inline: auto; }
+
+/* ---------- Portada ---------- */
+.portada {
+  background: var(--verde);
+  color: var(--crema);
+  padding-top: clamp(2.5rem, 7vw, 5rem);
+  overflow: hidden;
+}
+.marca { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+.marca img { width: 44px; height: 44px; border-radius: 10px; }
+.marca span { font-weight: 600; font-size: 1.125rem; }
+
+.portada h1 {
+  margin: clamp(2.5rem, 8vw, 5rem) 0 0;
+  font-size: clamp(4.5rem, 17vw, 11rem);
+  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.portada .lema {
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.35;
+}
+.portada .estado {
+  margin: 1.25rem 0 0;
+  color: color-mix(in srgb, var(--crema) 72%, var(--verde));
+}
+
+/* Línea del green con el hoyo: la bola rueda una vez al cargar */
+.green { display: block; width: 100%; height: auto; margin-top: clamp(2rem, 6vw, 4rem); }
+.green .bola { animation: rodar 1.6s cubic-bezier(.2,.75,.25,1) .3s both; }
+.green .bola-cae { animation: caer .22s ease-in 1.85s both; }
+@keyframes rodar { from { transform: translateX(-62%); } to { transform: translateX(0); } }
+@keyframes caer { from { transform: translateY(0); opacity: 1; } to { transform: translateY(14px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .green .bola, .green .bola-cae { animation: none; }
+}
+
+/* ---------- Contenido ---------- */
+.seccion { padding-block: clamp(3rem, 8vw, 5.5rem); }
+.funciones { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.funciones h2 { margin: 0 0 0.5rem; font-size: 1.375rem; line-height: 1.25; font-weight: 600; }
+.funciones p { margin: 0; color: var(--tinta-suave); }
+
+.fuentes { border-top: 1px solid var(--linea); }
+.fuentes h2 { margin: 0 0 0.75rem; font-size: 1.375rem; font-weight: 600; }
+.fuentes p { margin: 0 0 1rem; max-width: 44rem; }
+.fuentes .nota { color: var(--tinta-suave); font-size: 0.95rem; }
+
+.pie { border-top: 1px solid var(--linea); padding-block: 2rem 3rem; font-size: 0.95rem; color: var(--tinta-suave); }
+.pie .ancho { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; }
+.pie p { margin: 0; }
+.pie .enlaces { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+
+/* ---------- Política de privacidad ---------- */
+.cabecera { background: var(--verde); color: var(--crema); padding-block: 1.25rem; }
+.legal { padding-block: clamp(2.5rem, 6vw, 4rem) 3rem; }
+.legal h1 { margin: 0 0 0.25rem; font-size: clamp(2.25rem, 6vw, 3.25rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+.legal .fecha { margin: 0 0 2.5rem; color: var(--tinta-suave); }
+.legal h2 { margin: 2.5rem 0 0.5rem; font-size: 1.3rem; line-height: 1.3; font-weight: 600; }
+.legal p, .legal li { max-width: 42rem; }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin-bottom: 0.4rem; }
+.legal .resumen {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--naranja);
+  background: color-mix(in srgb, var(--naranja) 9%, var(--fondo));
+}
+.legal .resumen p { margin: 0; }
