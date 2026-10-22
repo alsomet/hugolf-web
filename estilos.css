@@ -112,3 +112,42 @@ img { max-width: 100%; height: auto; }
   background: color-mix(in srgb, var(--dorado) 9%, var(--fondo));
 }
 .legal .resumen p { margin: 0; }
+
+/* ---------- Capturas de la app ---------- */
+.capturas { padding-top: 0; }
+.capturas h2 { margin: 0 0 1.5rem; font-size: 1.375rem; font-weight: 600; }
+.tira {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 max(1.25rem, (100% - 68rem) / 2) 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 68rem;
+  box-sizing: content-box;
+}
+.tira li { margin: 0; }
+.tira img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.25rem;
+  border: 1px solid var(--linea);
+  box-shadow: 0 10px 28px rgb(18 67 47 / 0.12);
+}
+.tira p { margin: 0.75rem 0 0; font-size: 0.95rem; color: var(--tinta-suave); }
+ 
+/* En pantallas estrechas, las capturas se desplazan en horizontal */
+@media (max-width: 52rem) {
+  .tira {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(70vw, 16rem);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: none;
+    padding-inline: 1.25rem;
+  }
+  .tira li { scroll-snap-align: center; }
+}
