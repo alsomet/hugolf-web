@@ -6,7 +6,7 @@
   --verde: #12432F;      /* green del icono */
   --cesped: #2F8F4E;
   --crema: #F4EFE2;
-  --naranja: #F2A03D;    /* bandera */
+  --dorado: #C89F4D;     /* G del logo */
   --tinta: #1C2B23;
   --tinta-suave: #4B5A51;
   --linea: #D9D2BF;
@@ -35,7 +35,7 @@ body {
   background: var(--fondo);
 }
 a { color: var(--enlace); text-underline-offset: 0.18em; }
-a:focus-visible { outline: 3px solid var(--naranja); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; border-radius: 2px; }
 img { max-width: 100%; height: auto; }
 
 .ancho { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
@@ -108,7 +108,7 @@ img { max-width: 100%; height: auto; }
 .legal .resumen {
   margin: 0 0 2rem;
   padding: 1.25rem 1.5rem;
-  border-left: 4px solid var(--naranja);
-  background: color-mix(in srgb, var(--naranja) 9%, var(--fondo));
+  border-left: 4px solid var(--dorado);
+  background: color-mix(in srgb, var(--dorado) 9%, var(--fondo));
 }
 .legal .resumen p { margin: 0; }
