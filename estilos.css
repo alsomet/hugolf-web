@@ -160,4 +160,4 @@ img { max-width: 100%; height: auto; }
 .portada .tiendas a { display: inline-block; line-height: 0; border-radius: 10px; }
 .portada .tiendas img { height: 48px; width: auto; }
 /* La insignia de Google lleva un margen transparente: se compensa para igualar la altura */
-.portada .tiendas .google { height: 70px; margin: -11px; }
+.portada .tiendas .google { height: 48px; margin: 0; }
